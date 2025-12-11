@@ -80,3 +80,7 @@ class HealthCheckResponse(BaseModel):
     tables_count: int
     version: str = "1.0.0"
     uptime_seconds: float
+
+# Hello World Models
+class HelloWorldResponse(BaseModel):
+    message: str
