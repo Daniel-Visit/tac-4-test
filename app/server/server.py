@@ -32,6 +32,7 @@ from core.data_models import (
     InsightsRequest,
     InsightsResponse,
     HealthCheckResponse,
+    HelloWorldResponse,
     TableSchema,
     ColumnInfo
 )
@@ -238,6 +239,12 @@ async def health_check() -> HealthCheckResponse:
             tables_count=0,
             uptime_seconds=0
         )
+
+@app.get("/api/hello", response_model=HelloWorldResponse)
+async def hello_world() -> HelloWorldResponse:
+    """Simple hello world endpoint"""
+    logger.info("[SUCCESS] Hello World endpoint called")
+    return HelloWorldResponse(message="Hello World")
 
 @app.delete("/api/table/{table_name}")
 async def delete_table(table_name: str):

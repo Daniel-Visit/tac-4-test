@@ -61,8 +61,8 @@ AGENT_PR_CREATOR = "pr_creator"
 def check_env_vars(logger: Optional[logging.Logger] = None) -> None:
     """Check that all required environment variables are set."""
     required_vars = [
-        "ANTHROPIC_API_KEY",
         "CLAUDE_CODE_PATH",
+        # ANTHROPIC_API_KEY is optional - Claude Code can use Max plan authentication
     ]
     missing_vars = [var for var in required_vars if not os.getenv(var)]
 
